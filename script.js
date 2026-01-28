@@ -284,7 +284,7 @@ function finalizarNoWhatsApp() {
     msg += `\n*TOTAL: R$ ${total.toFixed(2)}*`;
     msg += `\n\nAguardo dados para pagamento.`;
     
-    window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://wa.me/558598097181?text=${encodeURIComponent(msg)}`, "_blank");
 }
 
 function mostrarToast(msg) {
