@@ -262,7 +262,7 @@ function removerItem(index) {
 
 // 7. FINALIZAR PEDIDO (COM REFERÊNCIA)
 function irParaWhatsappDireto() {
-    window.open("https://wa.me/5511999999999", "_blank");
+    window.open("https://wa.me/558598097181", "_blank");
 }
 
 function finalizarNoWhatsApp() {
