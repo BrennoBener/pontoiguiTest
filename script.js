@@ -294,5 +294,10 @@ function mostrarToast(msg) {
     setTimeout(() => t.className = "", 3000);
 }
 
+// SOBRE NÓS
+function abrirSobreNos() {
+    document.getElementById('modal-sobre').style.display = 'flex';
+}
+
 // INICIALIZAR
 carregarRevista();

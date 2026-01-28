@@ -15,6 +15,7 @@
     <div class="revista-container" id="revista">
         <section class="pagina capa">
             <div class="overlay-gradiente">
+                <button class="btn-sobre-nos" onclick="abrirSobreNos()">Sobre nós</button>
                 <div class="conteudo-capa">
                     <span class="tag-lancamento">ATACADO 2026</span>
                     <h1>Coleção<br>Ponto Igui</h1>
@@ -101,6 +102,23 @@
     </div>
 
     <div id="toast">Mensagem aqui</div>
+
+    <div class="modal-backdrop" id="modal-sobre">
+        <div class="modal-sheet">
+            <div class="modal-header">
+                <h3>Sobre o Atacado</h3>
+                <button class="fechar-btn" onclick="fecharModal('modal-sobre')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="lista-sobre">
+                    <li>✓ Pedido mínimo de 6 peças variadas.</li>
+                    <li>✓ Até 10% off na primeira compra.</li>
+                    <li>✓ Frete grátis nas compras a partir de R$ 1.500.</li>
+                    <li>✓ Aceitamos Pix, Crédito e Débito.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
