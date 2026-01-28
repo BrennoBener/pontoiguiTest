@@ -8,9 +8,9 @@ const produtos = [
         referencia: "VST-001", // REFERÊNCIA INTERNA (Oculta no site)
         preco: 129.90,
         imagens: [
-            "/images/modelo1.jpeg",
-            "/images/modelo1.2.jpeg",
-            "/images/modelo1.1.jpeg"
+            "./images/modelo1.jpeg",
+            "./images/modelo1.2.jpeg",
+            "./images/modelo1.1.jpeg"
         ],
         tamanhos: ["P", "M", "G"],
         cores: ["Estampado", "Vermelho"],
@@ -22,8 +22,8 @@ const produtos = [
         referencia: "CNJ-204", // REFERÊNCIA INTERNA
         preco: 189.00,
         imagens: [
-            "/images/modelo2.jpeg",
-            "/images/modelo2.1.jpeg"
+            "./images/modelo2.jpeg",
+            "./images/modelo2.1.jpeg"
         ],
         tamanhos: ["38", "40", "42"],
         cores: ["Bege", "Preto", "Pink"],
@@ -35,8 +35,8 @@ const produtos = [
         referencia: "MAC-055", // REFERÊNCIA INTERNA
         preco: 149.90,
         imagens: [
-            "/images/modelo3.jpeg",
-            "/images/modelo3.1.jpeg"
+            "./images/modelo3.jpeg",
+            "./images/modelo3.1.jpeg"
         ],
         tamanhos: ["U"],
         cores: ["Verde", "Azul"],
