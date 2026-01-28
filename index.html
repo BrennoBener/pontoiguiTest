@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revista Digital Atacado</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <button class="nav-seta nav-esq" onclick="navegar(-1)">&#10094;</button>
+    <button class="nav-seta nav-dir" onclick="navegar(1)">&#10095;</button>
+
+    <div class="revista-container" id="revista">
+        <section class="pagina capa">
+            <div class="overlay-gradiente">
+                <div class="conteudo-capa">
+                    <span class="tag-lancamento">ATACADO 2026</span>
+                    <h1>Coleção<br>Ponto Igui</h1>
+                    <p>O melhor para você.</p>
+                    <div class="dica-rolar">
+                        <p>Arraste para o lado</p>
+                        <span class="material-icons anima-seta">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+    <div class="controles-fixos">
+        <div class="icone-btn whatsapp" onclick="irParaWhatsappDireto()">
+            <span class="material-icons">chat</span>
+        </div>
+        <div class="icone-btn carrinho" onclick="abrirCarrinho()">
+            <span class="material-icons">shopping_bag</span>
+            <span class="badge" id="cont-carrinho">0</span>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="modal-compra">
+        <div class="modal-sheet">
+            <div class="modal-header">
+                <h3 id="modal-titulo">Produto</h3>
+                <button class="fechar-btn" onclick="fecharModal('modal-compra')">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="galeria-modal" id="modal-galeria"></div>
+
+                <p class="preco-destaque" id="modal-preco">R$ 00,00</p>
+                <p class="descricao-tecnica" id="modal-desc">...</p>
+
+                <div class="secao-opcao">
+                    <label>Cor:</label>
+                    <div class="opcoes-lista" id="opcoes-cor"></div>
+                </div>
+
+                <div class="secao-opcao">
+                    <label>Tamanho:</label>
+                    <div class="opcoes-lista" id="opcoes-tamanho"></div>
+                </div>
+
+                <div class="secao-opcao">
+                    <label>Quantidade:</label>
+                    <div class="qtd-wrapper">
+                        <button onclick="mudarQtdModal(-1)">-</button>
+                        <input type="number" id="modal-qtd" value="1" min="1" onchange="inputQtdModal(this.value)">
+                        <button onclick="mudarQtdModal(1)">+</button>
+                    </div>
+                </div>
+
+                <button class="btn-finalizar-item" onclick="adicionarAoCarrinho()">ADICIONAR À SACOLA</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="modal-carrinho">
+        <div class="modal-sheet carrinho-sheet">
+            <div class="modal-header">
+                <h3>Sua Sacola</h3>
+                <button class="fechar-btn" onclick="fecharModal('modal-carrinho')">&times;</button>
+            </div>
+            
+            <div class="aviso-atacado" id="aviso-atacado">
+                Verificando pedido...
+            </div>
+
+            <div class="lista-carrinho" id="lista-itens-carrinho"></div>
+            
+            <div class="footer-carrinho">
+                <div class="total-row">
+                    <span>Total:</span>
+                    <span id="carrinho-total">R$ 0,00</span>
+                </div>
+                <button class="btn-whatsapp-final" onclick="finalizarNoWhatsApp()">
+                    FINALIZAR PEDIDO (WhatsApp)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast">Mensagem aqui</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
