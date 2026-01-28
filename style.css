@@ -42,7 +42,7 @@ body { background-color: #000; font-family: 'Roboto', sans-serif; overflow: hidd
     padding: 30px 20px 80px 20px; color: white;
 }
 
-.capa { background-image: url('./images/modelo4.jpeg'); } /* --- IMAGEM DA CAPA --- */
+.capa { background-image: url('/pontoiguiTest/images/modelo4.jpeg'); } /* --- IMAGEM DA CAPA --- */
 .conteudo-capa h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1; margin: 10px 0; }
 .tag-lancamento { background: #fff; color: #000; padding: 5px 10px; font-weight: bold; font-size: 0.7rem; }
 .dica-rolar { margin-top: 30px; display: flex; align-items: center; gap: 10px; opacity: 0.8; }
