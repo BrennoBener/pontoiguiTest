@@ -12,6 +12,18 @@
     <button class="nav-seta nav-esq" onclick="navegar(-1)">&#10094;</button>
     <button class="nav-seta nav-dir" onclick="navegar(1)">&#10095;</button>
 
+    <div class="menu-bottom" id="menu-bottom">
+        <button class="btn-menu-bottom" onclick="abrirSobreNos()">Sobre Nós</button>
+        <button class="btn-menu-bottom" onclick="abrirFiltrosCategorias()">Filtrar</button>
+        <button class="btn-menu-bottom whatsapp-btn" onclick="irParaWhatsappDireto()">💬 WhatsApp</button>
+        <button class="btn-menu-bottom carrinho-btn" onclick="abrirCarrinho()" id="btn-sacola">🛍️ Sacola <span class="badge-menu" id="badge-sacola">0</span></button>
+    </div>
+
+    <div class="menu-bottom minimo escondido" id="menu-catalogo">
+        <button class="btn-menu-bottom" onclick="voltarAoCatalogo()">← Início</button>
+        <button class="btn-menu-bottom carrinho-btn" onclick="abrirCarrinho()" id="btn-sacola-catalogo">🛍️ <span class="badge-menu" id="badge-sacola-catalogo">0</span></button>
+    </div>
+
     <div class="revista-container" id="revista">
         <section class="pagina capa">
             <div class="overlay-gradiente">
@@ -27,17 +39,6 @@
             </div>
         </section>
         </div>
-
-    <div class="controles-fixos">
-        <button class="btn-sobre-nos" onclick="abrirSobreNos()">Sobre o Atacado</button>
-        <div class="icone-btn whatsapp" onclick="irParaWhatsappDireto()">
-            <span class="material-icons">chat</span>
-        </div>
-        <div class="icone-btn carrinho" onclick="abrirCarrinho()">
-            <span class="material-icons">shopping_bag</span>
-            <span class="badge" id="cont-carrinho">0</span>
-        </div>
-    </div>
 
     <div class="modal-backdrop" id="modal-compra">
         <div class="modal-sheet">
@@ -62,7 +63,7 @@
                     <div class="opcoes-lista" id="opcoes-tamanho"></div>
                 </div>
 
-                <div class="secao-opcao">
+                <div class="secao-opcao" id="secao-qtd-geral">
                     <label>Quantidade:</label>
                     <div class="qtd-wrapper">
                         <button onclick="mudarQtdModal(-1)">-</button>
@@ -70,6 +71,8 @@
                         <button onclick="mudarQtdModal(1)">+</button>
                     </div>
                 </div>
+
+                <div class="secao-opcao" id="secao-qtd-pecas"></div>
 
                 <button class="btn-finalizar-item" onclick="adicionarAoCarrinho()">ADICIONAR À SACOLA</button>
             </div>
@@ -83,13 +86,14 @@
                 <button class="fechar-btn" onclick="fecharModal('modal-carrinho')">&times;</button>
             </div>
             
-            <div class="aviso-atacado" id="aviso-atacado">
-                Verificando pedido...
-            </div>
+                    <div class="aviso-atacado" id="aviso-atacado">
+                        Verificando pedido...
+                    </div>
 
-            <div class="lista-carrinho" id="lista-itens-carrinho"></div>
+                    <div class="lista-carrinho" id="lista-itens-carrinho"></div>
             
             <div class="footer-carrinho">
+                <button class="btn-continuar-comprando" onclick="fecharModal('modal-carrinho')">← CONTINUAR COMPRANDO</button>
                 <div class="total-row">
                     <span>Total:</span>
                     <span id="carrinho-total">R$ 0,00</span>
@@ -101,8 +105,6 @@
         </div>
     </div>
 
-    <div id="toast">Mensagem aqui</div>
-
     <div class="modal-backdrop" id="modal-sobre">
         <div class="modal-sheet">
             <div class="modal-header">
@@ -111,15 +113,68 @@
             </div>
             <div class="modal-body">
                 <ul class="lista-sobre">
-                    <li>✓ Pedido mínimo de 6 peças variadas.</li>
-                    <li>✓ Até 10% off na primeira compra.</li>
-                    <li>✓ Frete grátis nas compras a partir de R$ 1.500.</li>
-                    <li>✓ Aceitamos Pix, Crédito e Débito.</li>
+                    <li><strong>Ponto Igui Atacado</strong><br>Desconto de até 10% na primeira compra.</li>
+                    <li><strong>Entrega GRATIS</strong><br>Para compras acima de 1500R$.</li>
+                    <li><strong>Qualidade Premium</strong><br>Todos os produtos passam por rigoroso controle de qualidade.</li>
+                    <li><strong>Pedido Mínimo:</strong> 6 peças<br></li>
                 </ul>
+                <button class="btn-whatsapp-modal" onclick="irParaWhatsappDireto()">
+                    FALE COM A GENTE
+                </button>
             </div>
         </div>
     </div>
 
+    <div class="modal-backdrop" id="modal-categorias">
+        <div class="modal-sheet">
+            <div class="modal-header">
+                <h3>Filtrar Produtos</h3>
+                <button class="fechar-btn" onclick="fecharModal('modal-categorias')">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="botoes-filtro-container">
+                    <button class="btn-filtro" onclick="mostrarTodos()">TODOS</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Blusas')">Blusas</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Saias')">Saias</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Calças')">Calças</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Vestidos')">Vestidos</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Conjuntos')">Conjuntos</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Plus_Size')">Plus Size</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="modal-filtro">
+        <div class="modal-sheet">
+            <div class="modal-header">
+                <h3>Filtrar Produtos</h3>
+                <button class="fechar-btn" onclick="fecharModal('modal-filtro')">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="botoes-filtro-container">
+                    <button class="btn-filtro" onclick="mostrarTodos()">TODOS</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Blusas')">Blusas</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Saias')">Saias</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Calças')">Calças</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Vestidos')">Vestidos</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Conjuntos')">Conjuntos</button>
+                    <button class="btn-filtro" onclick="mostrarCategoria('Plus_Size')">Plus Size</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="modal-imagem-ampliada">
+        <div class="modal-imagem-container">
+            <button class="fechar-btn-imagem" onclick="fecharImagemAmpliada()">&times;</button>
+            <img id="imagem-ampliada-src" src="" alt="Imagem ampliada">
+        </div>
+    </div>
+
+    <div id="toast"></div>
     <script src="script.js"></script>
 </body>
 </html>

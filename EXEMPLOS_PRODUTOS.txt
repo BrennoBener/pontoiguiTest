@@ -1,0 +1,73 @@
+/* 
+  EXEMPLOS DE COMO ADICIONAR NOVOS PRODUTOS COM CATEGORIAS
+  
+  Use como guia pra adicionar novos produtos em script.js
+*/
+
+/* EXEMPLO 1: Adicionar uma Saia */
+{
+    id: 4,
+    nome: "Saia Midi Jeans",
+    categoria: "Saias",           
+    referencia: "SKR-101",
+    preco: 89.90,
+    imagens: [
+        "./images/saia1.jpeg",
+        "./images/saia1.1.jpeg"
+    ],
+    tamanhos: ["P", "M", "G", "GG"],
+    cores: ["Azul", "Preto", "Branco"],
+    descricao: "Saia midi em jeans stretch com elastano. Confortável e moderna."
+}
+
+/* EXEMPLO 2: Adicionar uma Blusa */
+{
+    id: 5,
+    nome: "Blusa Cropped Off Shoulder",
+    categoria: "Blusas",          
+    referencia: "BLS-204",
+    preco: 59.90,
+    imagens: [
+        "./images/blusa1.jpeg",
+        "./images/blusa1.1.jpeg"
+    ],
+    tamanhos: ["P", "M", "G"],
+    cores: ["Rosa", "Preto", "Bege"],
+    descricao: "Blusa cropped com ombro descoberto. Tecido de viscose meia malha."
+}
+
+/* EXEMPLO 3: Adicionar um Macacão */
+{
+    id: 6,
+    nome: "Macacão Pantacourt Listrado",
+    categoria: "Macacões",
+    referencia: "MAC-156",
+    preco: 139.90,
+    imagens: [
+        "./images/maca1.jpeg",
+        "./images/maca1.1.jpeg"
+    ],
+    tamanhos: ["U"],
+    cores: ["Preto/Branco"],
+    descricao: "Macacão pantacourt com listras. Tamanho único."
+}
+
+/* PASSO A PASSO PARA ADICIONAR UM NOVO PRODUTO:
+
+1. Copie um dos exemplos acima
+2. Mude o ID (use um número único, não repetido)
+3. Atualize o nome, preço, imagens, tamanhos, cores
+4. CERTIFIQUE-SE que a categoria existe no array 'categorias'
+5. Cole no final do array 'produtos' em script.js
+6. Salve o arquivo
+7. Pronto! O produto aparecerá quando você filtrar pela categoria
+
+Exemplo de onde copiar em script.js:
+
+const produtos = [
+    { ... produtos existentes ... },
+    // COLE SEU NOVO PRODUTO AQUI! ↓
+    { id: 4, nome: "Seu novo produto", categoria: "Saias", ... }
+];
+
+*/
