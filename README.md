@@ -2,49 +2,49 @@
 
 Sistema completo de catálogo digital e e-commerce para atacado de roupas com integração WhatsApp.
 
-## 🎯 Funcionalidades
+##  Funcionalidades
 
-### ✨ Catálogo Digital
+###  Catálogo Digital
 - **Visualização em Revista**: Navegação horizontal entre páginas de catálogo
 - **Sistema de Filtros**: Categorias (Saias, Blusas, Calças, Vestidos, Conjuntos, Plus Size)
-- **Visualização de Imagens**: Zoom ampliado de produtos
+- **Visualização de Imagens**: Zoom em produtos
 - **Menu Responsivo**: Adaptado para desktop, tablet e mobile
 
-### 🛒 Sistema de Carrinho Avançado
-- **Carrinho Persistente**: Mantém itens mesmo navegando entre páginas
-- **Suporte a Conjuntos**: Compre o conjunto completo ou peças individuais
+###  Sistema de Carrinho Avançado
+- **Carrinho**: Mantém itens mesmo navegando entre páginas
+- **Conjuntos**: Compre o conjunto completo ou peças individuais
   - Cliente pode escolher: 5 blusas + 3 calças de um mesmo conjunto
   - Preços individualizados por peça
-- **Controle de Quantidade**: Aumentar/diminuir quantidade de cada item
+- **Controle de Quantidade**: Aumentar ou diminuir quantidade de cada item
 - **Remoção de Itens**: Remover produtos do carrinho facilmente
 
-### 💬 Integração WhatsApp
+### Integração com WhatsApp
 - **Envio Automático**: Lista de compras via WhatsApp
 - **Pedido Mínimo**: Sistema de validação de quantidade mínima (6 peças)
 - **Informações Completas**: Referência, tamanho, cor, quantidade e preço total
 - **Direto para Vendedor**: Botão flutuante WhatsApp para contato rápido
 
-### 📐 Responsividade
+### Responsividade
 - **Desktop**: Layout completo com todas as funcionalidades
 - **Tablet (768px)**: Ajustes de espaçamento e tamanho de fonte
 - **Mobile (480px)**: Interface otimizada para telas pequenas
 
-## 🏗️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 .
 ├── index.html          # Estrutura HTML principal
 ├── style.css           # Estilos CSS com media queries
-├── script.js           # Lógica JavaScript (434+ linhas)
+├── script.js           # Lógica JavaScript
 ├── images/             # Imagens dos produtos
 │   ├── capa.jpg
 │   ├── modeloplus1.jpeg
 │   ├── modeloplus1costa.jpeg
 │   └── modeloplus1cores.jpg
-└── README.md          # Este arquivo
+└── README.md
 ```
 
-## 📦 Estrutura de Dados dos Produtos
+## Estrutura de Dados dos Produtos
 
 ### Produto Normal
 ```javascript
@@ -92,7 +92,7 @@ Sistema completo de catálogo digital e e-commerce para atacado de roupas com in
 }
 ```
 
-## 🚀 Como Usar
+## Como Usar
 
 ### Adicionar Novo Produto
 
@@ -132,7 +132,7 @@ const categorias = [
 No `script.js`, procure por `558598097181` e substitua pelo seu número:
 - Formato: +55 + DDD + Número (sem caracteres especiais)
 
-## 🎨 Customização
+## Customização
 
 ### Cores do Menu
 No `style.css`, linha 54+:
@@ -151,28 +151,28 @@ No `style.css`, altere `.pagina`:
 }
 ```
 
-## 📱 Breakpoints Responsivos
+## Breakpoints Responsivos
 
 - **480px**: Mobile
 - **600px**: Tablet pequeno
 - **768px**: Tablet grande / Desktop pequeno
 - **1024px+**: Desktop completo
 
-## 🔧 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **HTML5**: Estrutura semântica
 - **CSS3**: Grid, Flexbox, Media Queries
 - **JavaScript Vanilla**: Sem dependências externas
-- **Google Material Icons**: Ícones (opcional)
+- **Google Material Icons**: Ícones
 - **WhatsApp Web API**: Integração de mensagens
 
-## 📝 Constantantes Importantes
+## Constantantes Importantes
 
 ```javascript
 const PEDIDO_MINIMO = 6;  // Mínimo de peças por pedido
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Carrinho não abre
 - Verifique se `modal-carrinho` existe no HTML
@@ -183,10 +183,10 @@ const PEDIDO_MINIMO = 6;  // Mínimo de peças por pedido
 - Use caminhos relativos: `./images/nome.jpg`
 
 ### WhatsApp não funciona
-- Verifique o número de telefone (formato: 558598097181)
+- Verifique o número de telefone (formato: 999999999)
 - Confira se está usando HTTPS em produção
 
-## 📦 Deploy com GitHub Pages
+## Deploy com GitHub Pages
 
 O projeto está configurado para deploy automático via GitHub Pages:
 
@@ -197,13 +197,13 @@ O projeto está configurado para deploy automático via GitHub Pages:
 
 Seu site estará disponível em: `https://seu-usuario.github.io/seu-repositorio`
 
-## 📄 Licença
+## Licença
 
-Projeto desenvolvido para Ponto Igui Moda Atacado.
+Projeto desenvolvido para estudos e aplicação.
 
-## 👤 Autor
+## Autor
 
-Desenvolvido por: Assistente IA
+Desenvolvido por: Brenno Bener
 Data: Janeiro 2026
 
 ---
