@@ -8,6 +8,7 @@ const produtos = [
         categorias: ["Conjuntos", "Blusas", "Calça"],
         preco: 89.80, // Preço do conjunto
         isConjunto: true,
+        video: "./videos/modelo1plusVid.mp4",
         pecas: [
             {
                 nome: "Blusa",
@@ -78,6 +79,12 @@ let produtoAtual = null;
 let selecoes = { tamanho: null, cor: null, qtd: 1 };
 const PEDIDO_MINIMO = 6;
 let categoriaFiltro = null; // Controla qual categoria está ativa no catálogo
+const VIDEOS_CAPA = [
+    "./videos/modelo1vid.mp4",
+    "./videos/modelo2vid.mp4",
+    "./videos/modelo1plusVid.mp4"
+];
+let indiceVideoAtual = 0;
 
 // 0.5. FUNÇÕES DE FILTRO DE CATÁLOGO
 function mostrarCategoria(categoria) {
@@ -107,26 +114,112 @@ function renderizarCatalogo() {
     produtosFiltrados.forEach(produto => {
         const secao = document.createElement('section');
         secao.className = 'pagina';
-        secao.style.backgroundImage = `url('${produto.imagens[0]}')`;
+        secao.id = `pagina-produto-${produto.id}`;
         
-        secao.innerHTML = `
-            <div class="overlay-gradiente">
-                <div class="info-rapida">
-                    <h2>${produto.nome}</h2>
-                    <p class="preco-lista">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
-                    <button class="btn-comprar-vitrine" onclick="abrirDetalhes(${produto.id})">
-                        COMPRAR
-                    </button>
+        // Se o produto tem vídeo, criar container para mídia
+        if(produto.video) {
+            secao.innerHTML = `
+                <div class="midia-container" id="midia-${produto.id}">
+                    <img class="midia-imagem" src="${produto.imagens[0]}" alt="${produto.nome}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <video class="midia-video" style="display: none; width: 100%; height: 100%; object-fit: cover;" autoplay loop muted playsinline>
+                        <source src="${produto.video}" type="video/mp4">
+                    </video>
                 </div>
-            </div>
-        `;
-        container.appendChild(secao);
+                <div class="overlay-gradiente">
+                    <div class="info-rapida">
+                        <h2>${produto.nome}</h2>
+                        <p class="preco-lista">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
+                        <button class="btn-comprar-vitrine" onclick="abrirDetalhes(${produto.id})">
+                            COMPRAR
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(secao);
+            // Iniciar transição de imagem para vídeo após renderizar
+            setTimeout(() => iniciarTransicaoVideo(produto.id), 100);
+        } else {
+            secao.style.backgroundImage = `url('${produto.imagens[0]}')`;
+            secao.innerHTML = `
+                <div class="overlay-gradiente">
+                    <div class="info-rapida">
+                        <h2>${produto.nome}</h2>
+                        <p class="preco-lista">R$ ${produto.preco.toFixed(2).replace('.', ',')}</p>
+                        <button class="btn-comprar-vitrine" onclick="abrirDetalhes(${produto.id})">
+                            COMPRAR
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(secao);
+        }
     });
 } 
+
+// 0.6. FUNÇÃO PARA TRANSIÇÃO DE IMAGEM PARA VÍDEO (Catálogo - 2 segundos)
+function iniciarTransicaoVideo(produtoId) {
+    const container = document.getElementById(`midia-${produtoId}`);
+    if(!container) return;
+    
+    const imagem = container.querySelector('.midia-imagem');
+    const video = container.querySelector('.midia-video');
+    
+    if(!imagem || !video) return;
+    
+    // Mostra a imagem por 2 segundos
+    setTimeout(() => {
+        // Fade out da imagem
+        imagem.style.transition = 'opacity 0.5s ease-in-out';
+        imagem.style.opacity = '0';
+        
+        // Mostra o vídeo
+        setTimeout(() => {
+            imagem.style.display = 'none';
+            video.style.display = 'block';
+            video.play();
+        }, 500);
+    }, 2000);
+}
+
+// 0.7. FUNÇÃO PARA TRANSIÇÃO DE VÍDEO NA CAPA (Alterna entre vídeos)
+function iniciarTransicaoVideoCapa() {
+    const container = document.getElementById('midia-capa');
+    if(!container) return;
+    
+    const imagem = container.querySelector('.midia-imagem');
+    const video = container.querySelector('.midia-video');
+    
+    if(!imagem || !video) return;
+    
+    // Mostra a imagem por 3 segundos
+    setTimeout(() => {
+        // Fade out da imagem
+        imagem.style.transition = 'opacity 0.5s ease-in-out';
+        imagem.style.opacity = '0';
+        
+        // Mostra o vídeo
+        setTimeout(() => {
+            imagem.style.display = 'none';
+            video.style.display = 'block';
+            video.src = VIDEOS_CAPA[indiceVideoAtual];
+            video.play();
+            
+            // Alterna para o próximo vídeo quando este termina
+            video.onended = () => {
+                indiceVideoAtual = (indiceVideoAtual + 1) % VIDEOS_CAPA.length;
+                video.src = VIDEOS_CAPA[indiceVideoAtual];
+                video.play();
+            };
+        }, 500);
+    }, 3000);
+}
 
 // 1. GERAÇÃO DA REVISTA
 function carregarRevista() {
     const container = document.getElementById('revista');
+    
+    // Inicia transição de vídeo na capa (com 3 segundos e múltiplos vídeos)
+    setTimeout(() => iniciarTransicaoVideoCapa(), 100);
     
     // Capa já está no HTML, agora carrega os produtos
     carregarCatalogo();
